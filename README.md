@@ -113,9 +113,9 @@ notesmesh/
 │   ├── ForceSim.swift, Communities.swift, LayoutSetup.swift   # layout and islands
 │   ├── Views.swift, Panel.swift, GraphView.swift, App.swift   # SwiftUI: controls, drawer, pages
 │   └── DemoLibrary.swift                        # the sample library
-├── Resources/      # app icon, entitlements, privacy manifest
+├── Resources/      # NotesMesh.icon (Icon Composer), AppIcon.icns, entitlements, privacy manifest
 ├── Web/fonts/      # JetBrains Mono for graph labels (OFL)
-├── scripts/        # build-app.sh, make-icon.swift
+├── scripts/        # build-app.sh
 └── assets/         # README images
 ```
 
