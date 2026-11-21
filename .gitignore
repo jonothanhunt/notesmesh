@@ -1,0 +1,17 @@
+# Build output
+build/
+.build/
+*.xcodeproj/xcuserdata/
+DerivedData/
+
+# macOS
+.DS_Store
+
+# Never commit real note data or diagnostics
+graph-snapshot.json
+diagnostics.txt
+bench.txt
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+assets/raw/
