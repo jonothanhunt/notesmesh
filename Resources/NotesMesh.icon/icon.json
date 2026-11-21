@@ -1,0 +1,190 @@
+{
+  "features" : [
+    "refractivity"
+  ],
+  "fill" : {
+    "solid" : "display-p3:0.99268,0.90249,0.90838,1.00000"
+  },
+  "groups" : [
+    {
+      "blur-material" : 0.14,
+      "layers" : [
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "extended-srgb:0.00000,0.53333,1.00000,0.08000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "display-p3:0.91113,0.55908,0.39160,0.45000"
+              }
+            }
+          ],
+          "glass" : true,
+          "hidden" : false,
+          "image-name" : "5-node-organisation.svg",
+          "name" : "5-node-organisation",
+          "position" : {
+            "scale" : 1.18,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "solid" : "display-p3:0.96783,0.53341,0.37755,0.30000"
+          },
+          "hidden" : false,
+          "image-name" : "4-node-person.svg",
+          "name" : "4-node-person",
+          "position" : {
+            "scale" : 1.18,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "display-p3:0.40298,0.59832,0.38070,0.21628"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "display-p3:0.46818,0.71365,0.82501,0.53000"
+              }
+            }
+          ],
+          "hidden" : false,
+          "image-name" : "3-nodes-notes.svg",
+          "name" : "3-nodes-notes",
+          "position" : {
+            "scale" : 1.18,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "lighting" : "combined",
+      "name" : "Group",
+      "refractivity" : {
+        "depth" : 0,
+        "enabled" : true,
+        "strength" : 1
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.5
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.3
+      }
+    },
+    {
+      "blur-material" : 0,
+      "layers" : [
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "display-p3:0.00000,0.00000,0.00000,0.15436"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "display-p3:0.96783,0.77982,0.79082,1.00000"
+              }
+            },
+            {
+              "appearance" : "tinted",
+              "value" : {
+                "solid" : "display-p3:1.00000,0.86058,0.89825,0.88000"
+              }
+            }
+          ],
+          "hidden" : false,
+          "image-name" : "2-n-lines.svg",
+          "name" : "2-n-lines",
+          "position" : {
+            "scale" : 1.18,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "Group",
+      "refractivity" : {
+        "depth" : 0,
+        "enabled" : true,
+        "strength" : 1
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.5
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.3
+      }
+    },
+    {
+      "blur-material" : null,
+      "layers" : [
+        {
+          "blend-mode" : "normal",
+          "image-name" : "1-satellites.svg",
+          "name" : "1-satellites",
+          "opacity" : 0,
+          "position" : {
+            "scale" : 1.18,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "Group",
+      "opacity" : 0.49,
+      "refractivity" : {
+        "depth" : 0.3036328125,
+        "enabled" : false,
+        "strength" : 0.61421875
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.5
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.39
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

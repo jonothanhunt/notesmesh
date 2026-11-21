@@ -230,7 +230,7 @@ final class MetalGraphView: MTKView, MTKViewDelegate {
 
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) { redraw() }
 
-    // Benchmark: `open NoteMesh.app --args --bench` sweeps the zoom for 3 s and reports
+    // Benchmark: `open Notes Mesh.app --args --bench` sweeps the zoom for 3 s and reports
     // frames drawn and the CPU time spent building each frame.
     private var bench: (start: CFTimeInterval, z0: Double, frames: Int, cpu: Double, worst: Double, done: (String) -> Void)?
     func runBenchmark(_ done: @escaping (String) -> Void) {

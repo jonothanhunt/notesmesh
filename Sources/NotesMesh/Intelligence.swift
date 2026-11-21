@@ -322,7 +322,7 @@ struct IndexCache: Codable, Sendable {
 
     static func url(demo: Bool) -> URL {
         let dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("NoteMesh", isDirectory: true)
+            .appendingPathComponent("NotesMesh", isDirectory: true)
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         return dir.appendingPathComponent(demo ? "index-demo.json" : "index.json")
     }

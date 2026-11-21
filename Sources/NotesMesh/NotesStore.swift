@@ -19,7 +19,7 @@ enum NotesStoreError: LocalizedError {
     }
 }
 
-/// Reads Apple Notes' private Core Data store. Read-only: NoteMesh works on a copy of
+/// Reads Apple Notes' private Core Data store. Read-only: Notes Mesh works on a copy of
 /// the database and never writes to the Notes container.
 enum NotesStore {
     static var containerURL: URL {
@@ -54,7 +54,7 @@ enum NotesStore {
     static func snapshot() throws -> URL {
         let fm = FileManager.default
         let dir = fm.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("NoteMesh/snapshot", isDirectory: true)
+            .appendingPathComponent("NotesMesh/snapshot", isDirectory: true)
         try? fm.removeItem(at: dir)
         try fm.createDirectory(at: dir, withIntermediateDirectories: true)
         let target = dir.appendingPathComponent("NoteStore.sqlite")

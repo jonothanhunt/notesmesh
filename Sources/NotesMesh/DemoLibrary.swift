@@ -1,6 +1,6 @@
 import Foundation
 
-/// Sample notes shown until NoteMesh can read your own: one made-up person's library, with
+/// Sample notes shown until Notes Mesh can read your own: one made-up person's library, with
 /// people and companies they keep notes about, everyday notes that mention them, and topics
 /// shared across folders, so islands, profiles and mentions all have something to show.
 enum DemoLibrary {
@@ -203,7 +203,7 @@ enum DemoLibrary {
         S("Health", "Allergy season", "Hay fever from May. Antihistamine before long runs, shower after the allotment.", [], ["Allotment plan"]),
         S("Photography", "Allotment photo series", "Black and white portraits of plot holders. Tom with his chillies first. Print in Ben's darkroom.", ["projects"], ["Darkroom course", "Allotment plan"]),
         S("Music", "EP recording plan", "Four songs, record at Jamie's over winter weekends, mix in spring, release for the birthday party.", ["projects"], ["Synth ideas with Jamie"]),
-        S("Ideas", "App name ideas", "NoteMesh, Constellate, Threadline, Islands. Check domain names.", ["ideas"], ["Side project ideas"]),
+        S("Ideas", "App name ideas", "Notes Mesh, Constellate, Threadline, Islands. Check domain names.", ["ideas"], ["Side project ideas"]),
     ]
 
     static func make() -> NotesLibrary {

@@ -1,6 +1,6 @@
 ---
 name: Feature idea
-about: Suggest something for NoteMesh
+about: Suggest something for Notes Mesh
 labels: enhancement
 ---
 

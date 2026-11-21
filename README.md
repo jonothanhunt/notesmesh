@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/icon.png" alt="NoteMesh icon" width="128">
+  <img src="assets/icon.png" alt="Notes Mesh icon" width="128">
 </p>
 
-<h1 align="center">NoteMesh</h1>
+<h1 align="center">Notes Mesh</h1>
 
 <p align="center">
   <img alt="macOS 26" src="https://img.shields.io/badge/macOS-26%2B-black?style=flat-square&logo=apple&logoColor=white" />
@@ -13,11 +13,11 @@
 
 <p align="center">
   <strong>Your Apple Notes as a living map.</strong><br/>
-  NoteMesh reads your Notes library on your Mac and draws it as a graph: islands of related notes, the people and organisations you keep notes about, and the topics that tie them together. Native SwiftUI and Metal, with Liquid Glass controls. Nothing leaves your Mac.
+  Notes Mesh reads your Notes library on your Mac and draws it as a graph: islands of related notes, the people and organisations you keep notes about, and the topics that tie them together. Native SwiftUI and Metal, with Liquid Glass controls. Nothing leaves your Mac.
 </p>
 
 <p align="center">
-  <img src="assets/hero.webp" alt="NoteMesh in dark mode: notes in coloured islands, with people and organisations in the drawer" width="100%">
+  <img src="assets/hero.webp" alt="Notes Mesh in dark mode: notes in coloured islands, with people and organisations in the drawer" width="100%">
 </p>
 
 <div align="center" style="line-height: 0;">
@@ -32,7 +32,7 @@
 1. [Features](#features)
 2. [Privacy](#privacy)
 3. [Guide](#guide)
-4. [Using NoteMesh](#using-notemesh)
+4. [Using Notes Mesh](#using-notes-mesh)
 5. [Project Structure](#project-structure)
 6. [Contributing](#contributing)
 7. [License](#license)
@@ -48,15 +48,15 @@
 - **Light and dark:** follows your Mac, or pick one with the button under the slider.
 
 ## Privacy
-NoteMesh is built to be safe to point at your most personal notes.
+Notes Mesh is built to be safe to point at your most personal notes.
 
 - **Nothing leaves your Mac.** There's no network code, no accounts, no analytics and no crash reporting.
-- **Read-only.** NoteMesh copies the Notes database to a temporary folder, reads the copy and deletes it straight away. It never writes to the Notes library, and it skips locked notes.
-- **What it keeps:** only what it works out (topics, profile types, similarity vectors, settings) in `~/Library/Application Support/NoteMesh/`. **File → Delete NoteMesh Data** removes it all.
+- **Read-only.** Notes Mesh copies the Notes database to a temporary folder, reads the copy and deletes it straight away. It never writes to the Notes library, and it skips locked notes.
+- **What it keeps:** only what it works out (topics, profile types, similarity vectors, settings) in `~/Library/Application Support/NotesMesh/`. **File → Delete Notes Mesh Data** removes it all.
 
 The full policy is in [PRIVACY.md](PRIVACY.md).
 
-> NoteMesh is an independent project and isn't affiliated with or endorsed by Apple. It reads the Notes app's private database format, which can change with any macOS update. Apple, Apple Notes and Apple Intelligence are trademarks of Apple Inc.
+> Notes Mesh is an independent project and isn't affiliated with or endorsed by Apple. It reads the Notes app's private database format, which can change with any macOS update. Apple, Apple Notes and Apple Intelligence are trademarks of Apple Inc.
 
 ## Guide
 
@@ -67,25 +67,25 @@ The full policy is in [PRIVACY.md](PRIVACY.md).
 
 ### 2. Build and install
 ```bash
-git clone https://github.com/jonothanhunt/notemesh.git
-cd notemesh
+git clone https://github.com/jonothanhunt/notesmesh.git
+cd notesmesh
 scripts/build-app.sh install
-open ~/Applications/NoteMesh.app
+open ~/Applications/Notes Mesh.app
 ```
 
-The script signs with your Apple Development certificate if you have one, so macOS keeps NoteMesh's access across rebuilds. Without one it signs ad hoc, and you may need to grant access again after each build.
+The script signs with your Apple Development certificate if you have one, so macOS keeps Notes Mesh's access across rebuilds. Without one it signs ad hoc, and you may need to grant access again after each build.
 
 ### 3. Connect your notes
-NoteMesh opens with a sample library so you can explore straight away. The card at the top of the drawer walks you through turning on **Full Disk Access** (System Settings → Privacy & Security), which is the only way macOS lets an app read the Notes library. You can drag NoteMesh straight into the list. As soon as access is on, your own notes replace the samples.
+Notes Mesh opens with a sample library so you can explore straight away. The card at the top of the drawer walks you through turning on **Full Disk Access** (System Settings → Privacy & Security), which is the only way macOS lets an app read the Notes library. You can drag Notes Mesh straight into the list. As soon as access is on, your own notes replace the samples.
 
 ### 4. Releasing (maintainers)
 ```bash
-xcrun notarytool store-credentials notemesh --apple-id YOU@EXAMPLE.COM --team-id TEAMID
-NOTARY_PROFILE=notemesh scripts/build-app.sh release
+xcrun notarytool store-credentials notesmesh --apple-id YOU@EXAMPLE.COM --team-id TEAMID
+NOTARY_PROFILE=notesmesh scripts/build-app.sh release
 ```
-This signs with Developer ID, uses the hardened runtime, notarizes, staples and writes `build/NoteMesh.zip` for a GitHub release.
+This signs with Developer ID, uses the hardened runtime, notarizes, staples and writes `build/NotesMesh.zip` for a GitHub release.
 
-## Using NoteMesh
+## Using Notes Mesh
 
 | Do this | To |
 | ------- | -- |
@@ -103,8 +103,8 @@ Launch options for development: `--sample` shows only the sample library (never 
 ## Project Structure
 
 ```text
-notemesh/
-├── Sources/NoteMesh/
+notesmesh/
+├── Sources/NotesMesh/
 │   ├── NotesStore.swift, NoteProto.swift        # read the Notes database (temporary copy) and note bodies
 │   ├── Intelligence.swift                       # Apple Intelligence, keywords, embeddings, the index cache
 │   ├── Category.swift, GraphBuilder.swift       # people/organisation profiles, building the graph

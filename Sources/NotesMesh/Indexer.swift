@@ -60,7 +60,7 @@ final class Indexer: ObservableObject {
     private var loading = false
     private let tagger = AITagger()
 
-    /// Your notes if NoteMesh can read them; otherwise sample notes, with the drawer showing
+    /// Your notes if Notes Mesh can read them; otherwise sample notes, with the drawer showing
     /// how to connect yours. It keeps checking, and swaps in your notes once access is on.
     func start() {
         // `--sample`: only the sample library, never your notes (screenshots, demos, development).
@@ -205,7 +205,7 @@ final class Indexer: ObservableObject {
     /// Why Apple Intelligence isn't in use right now even though it's selected (nil if it is,
     /// or if you chose keywords). Drives the panel's banner and the one-time notice.
     @Published private(set) var aiBlocker: AITagger.Blocker?
-    /// Shown once, the first time NoteMesh has to fall back to keywords.
+    /// Shown once, the first time Notes Mesh has to fall back to keywords.
     @Published var showFallbackNotice = false
     /// Apple Intelligence can't run on this Mac at all (not just "still downloading").
     var aiUnusable: Bool { tagger.blocker.map { $0 != .downloading } ?? false }
@@ -335,7 +335,7 @@ final class Indexer: ObservableObject {
         // A temporary copy of the Notes database is deleted after each read; this also clears
         // one left behind by a crash or an older version.
         let caches = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-        try? FileManager.default.removeItem(at: caches.appendingPathComponent("NoteMesh/snapshot"))
+        try? FileManager.default.removeItem(at: caches.appendingPathComponent("NotesMesh/snapshot"))
         guard !diagnosticsEnabled else { return }
         let dir = IndexCache.url(demo: false).deletingLastPathComponent()
         for f in ["diagnostics.txt", "graph-snapshot.json", "bench.txt"] {
@@ -343,13 +343,13 @@ final class Indexer: ObservableObject {
         }
     }
 
-    /// Deletes everything NoteMesh has stored (topics, profiles, embeddings, settings, caches)
+    /// Deletes everything Notes Mesh has stored (topics, profiles, embeddings, settings, caches)
     /// and starts again from your notes. Your notes themselves are never touched.
     func deleteAllData() {
         aiTask?.cancel()
         let fm = FileManager.default
         let support = IndexCache.url(demo: false).deletingLastPathComponent()
-        let caches = fm.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("NoteMesh")
+        let caches = fm.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("NotesMesh")
         try? fm.removeItem(at: support)
         try? fm.removeItem(at: caches)
         if let id = Bundle.main.bundleIdentifier { UserDefaults.standard.removePersistentDomain(forName: id) }
@@ -361,7 +361,7 @@ final class Indexer: ObservableObject {
 
     private func writeDiagnostics(_ lines: [String]) {
         let url = IndexCache.url(demo: false).deletingLastPathComponent().appendingPathComponent("diagnostics.txt")
-        let text = (["NoteMesh diagnostics — \(Date())", "AI: \(tagger.statusText)"] + lines).joined(separator: "\n")
+        let text = (["Notes Mesh diagnostics — \(Date())", "AI: \(tagger.statusText)"] + lines).joined(separator: "\n")
         try? text.write(to: url, atomically: true, encoding: .utf8)
     }
 }
@@ -387,6 +387,6 @@ enum NoteOpener {
         if let url = URL(string: "applenotes:note/\(note.id)"), NSWorkspace.shared.open(url) {
             return nil
         }
-        return "Allow NoteMesh to control Notes in System Settings → Privacy & Security → Automation."
+        return "Allow Notes Mesh to control Notes in System Settings → Privacy & Security → Automation."
     }
 }

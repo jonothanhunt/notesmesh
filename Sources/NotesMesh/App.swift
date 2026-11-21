@@ -4,23 +4,24 @@ import AppKit
 @main
 enum Entry {
     static func main() {
+        RenameMigration.run()   // before anything touches the app's folders
         let args = CommandLine.arguments
         if args.contains("--layout") {
             LayoutPreview.run(args)
         } else if args.contains("--dump") {
             CLI.run(args)
         } else {
-            NoteMeshApp.main()
+            NotesMeshApp.main()
         }
     }
 }
 
-struct NoteMeshApp: App {
+struct NotesMeshApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var delegate
     @StateObject private var indexer = Indexer()
 
     var body: some Scene {
-        Window("NoteMesh", id: "main") {
+        Window("Notes Mesh", id: "main") {
             ContentView()
                 .environmentObject(indexer)
         }
@@ -35,14 +36,14 @@ struct NoteMeshApp: App {
                 Button("Rebuild Index…") { indexer.confirmReindex = true }
                     .keyboardShortcut("r", modifiers: [.command, .shift])
                 Divider()
-                Button("Delete NoteMesh Data…") { indexer.confirmDeleteData = true }
+                Button("Delete Notes Mesh Data…") { indexer.confirmDeleteData = true }
             }
             // No Help book: the Help menu points at the project instead.
             CommandGroup(replacing: .help) {
                 Button("Send Feedback…") { NSWorkspace.shared.open(Links.feedback) }
                 Button("Report a Security Issue…") { NSWorkspace.shared.open(Links.security) }
                 Divider()
-                Button("NoteMesh on GitHub") { NSWorkspace.shared.open(Links.repo) }
+                Button("Notes Mesh on GitHub") { NSWorkspace.shared.open(Links.repo) }
                 Button("Privacy") { NSWorkspace.shared.open(Links.privacy) }
             }
         }
@@ -51,7 +52,7 @@ struct NoteMeshApp: App {
 
 /// Where the project lives. Change `repo` if you fork it.
 enum Links {
-    static let repo = URL(string: "https://github.com/jonothanhunt/notemesh")!
+    static let repo = URL(string: "https://github.com/jonothanhunt/notesmesh")!
     static let feedback = repo.appending(path: "issues/new")
     static let security = repo.appending(path: "security/advisories/new")
     static let privacy = repo.appending(path: "blob/main/PRIVACY.md")
@@ -71,7 +72,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
 }
 
-/// `NoteMesh --dump [--demo] [--ai N] [--out graph.json]`: builds the graph without UI.
+/// `Notes Mesh --dump [--demo] [--ai N] [--out graph.json]`: builds the graph without UI.
 enum CLI {
     static func run(_ args: [String]) {
         let done = DispatchSemaphore(value: 0)
@@ -128,5 +129,33 @@ enum CLI {
         } catch {
             print("error:", error.localizedDescription)
         }
+    }
+}
+
+/// One-off move from the app's old name (NoteMesh) to Notes Mesh: the index and settings carry
+/// over, so nothing has to be read again. Safe to run every launch; it only acts once.
+enum RenameMigration {
+    static func run() {
+        let fm = FileManager.default
+        let support = fm.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+        let old = support.appendingPathComponent("NoteMesh"), new = support.appendingPathComponent("NotesMesh")
+        if fm.fileExists(atPath: old.path) {
+            try? fm.createDirectory(at: new, withIntermediateDirectories: true)
+            // Move each file across unless the new folder already has its own copy, then tidy up.
+            for name in (try? fm.contentsOfDirectory(atPath: old.path)) ?? [] {
+                let dest = new.appendingPathComponent(name)
+                if !fm.fileExists(atPath: dest.path) { try? fm.moveItem(at: old.appendingPathComponent(name), to: dest) }
+            }
+            try? fm.removeItem(at: old)
+        }
+        let caches = fm.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        try? fm.removeItem(at: caches.appendingPathComponent("NoteMesh"))
+
+        let defaults = UserDefaults.standard
+        guard !defaults.bool(forKey: "migratedFromNoteMesh") else { return }
+        if let previous = UserDefaults(suiteName: "io.github.jonothanhunt.notemesh")?.persistentDomain(forName: "io.github.jonothanhunt.notemesh") {
+            for (key, value) in previous where defaults.object(forKey: key) == nil { defaults.set(value, forKey: key) }
+        }
+        defaults.set(true, forKey: "migratedFromNoteMesh")
     }
 }

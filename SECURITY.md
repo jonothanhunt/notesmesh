@@ -1,6 +1,6 @@
 # Security and privacy
 
-NoteMesh reads one of the most personal things on a Mac, so problems that could expose note
+Notes Mesh reads one of the most personal things on a Mac, so problems that could expose note
 content are taken seriously. That includes:
 
 - note content written anywhere outside the Notes library;
@@ -13,15 +13,15 @@ content are taken seriously. That includes:
 Please report security or privacy problems privately, through GitHub's
 **Security → Report a vulnerability** on this repository, rather than in a public issue.
 Include the macOS version and steps to reproduce. Please don't attach real notes; the demo
-notes NoteMesh shows before you connect your own are usually enough to show a problem.
+notes Notes Mesh shows before you connect your own are usually enough to show a problem.
 
-## What NoteMesh touches
+## What Notes Mesh touches
 
 | Location | Access | Why |
 |---|---|---|
 | `~/Library/Group Containers/group.com.apple.notes/` | Read (needs Full Disk Access) | The Notes database, copied and read |
-| `~/Library/Caches/NoteMesh/snapshot/` | Write, then deleted | The temporary copy, removed after each read |
-| `~/Library/Application Support/NoteMesh/` | Read/write | Topics, profile types, similarity vectors |
+| `~/Library/Caches/NotesMesh/snapshot/` | Write, then deleted | The temporary copy, removed after each read |
+| `~/Library/Application Support/NotesMesh/` | Read/write | Topics, profile types, similarity vectors |
 | Notes app (Apple Events) | Ask to show a note | Opening a note you double-click |
 
 There is no networking code.

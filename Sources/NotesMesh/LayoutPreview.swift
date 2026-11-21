@@ -3,7 +3,7 @@ import CoreGraphics
 import ImageIO
 import UniformTypeIdentifiers
 
-/// `NoteMesh --layout graph.json --png out.png [--folders] [--no-islands] [--layers topic,similar,link]
+/// `Notes Mesh --layout graph.json --png out.png [--folders] [--no-islands] [--layers topic,similar,link]
 ///  [--k 2] [--set groupPull=0.1,groupGap=1.5]` — runs the real layout headlessly and draws it,
 /// coloured by island, so forces can be tuned without the app.
 enum LayoutPreview {

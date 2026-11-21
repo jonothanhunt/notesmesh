@@ -2,7 +2,7 @@ import Foundation
 
 /// Decodes the body of an Apple Note: ZICNOTEDATA.ZDATA is a gzipped protobuf
 /// (NoteStoreProto → Document(2) → Note(3) → text(2) + attribute runs(5)).
-/// Only the fields NoteMesh needs are read: the plain text, link URLs and inline attachments.
+/// Only the fields Notes Mesh needs are read: the plain text, link URLs and inline attachments.
 struct ParsedNoteBody {
     var text = ""
     var links: [String] = []

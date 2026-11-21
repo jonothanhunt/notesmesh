@@ -7,4 +7,4 @@
 - A Maps-style drawer with search, islands, people, organisations and topics, and a page for each.
 - Topics from Apple Intelligence on-device, or from keywords, switchable at any time; a clear notice when Apple Intelligence isn't available.
 - A built-in sample library, with a guided Full Disk Access setup that swaps in your notes when access is on.
-- Privacy: no network code, read-only access through a temporary copy, locked notes skipped, File → Delete NoteMesh Data.
+- Privacy: no network code, read-only access through a temporary copy, locked notes skipped, File → Delete Notes Mesh Data.

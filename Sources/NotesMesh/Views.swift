@@ -80,15 +80,15 @@ struct ContentView: View {
         .toolbar(removing: .title)
         .toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
         .modifier(FallbackNotice(indexer: indexer))
-        .confirmationDialog("Delete everything NoteMesh has stored?", isPresented: $indexer.confirmDeleteData) {
-            Button("Delete NoteMesh Data", role: .destructive) { indexer.deleteAllData() }
+        .confirmationDialog("Delete everything Notes Mesh has stored?", isPresented: $indexer.confirmDeleteData) {
+            Button("Delete Notes Mesh Data", role: .destructive) { indexer.deleteAllData() }
         } message: {
-            Text("This removes NoteMesh's topics, profiles, similarity index and settings from this Mac. Your notes stay as they are, and NoteMesh rebuilds what it needs next time.")
+            Text("This removes Notes Mesh's topics, profiles, similarity index and settings from this Mac. Your notes stay as they are, and Notes Mesh rebuilds what it needs next time.")
         }
         .confirmationDialog("Rebuild the index?", isPresented: $indexer.confirmReindex) {
             Button("Rebuild Index") { indexer.reindex() }
         } message: {
-            Text("NoteMesh forgets its topics and profiles and reads every note again. Keyword topics show until Apple Intelligence catches up.")
+            Text("Notes Mesh forgets its topics and profiles and reads every note again. Keyword topics show until Apple Intelligence catches up.")
         }
         .sheet(isPresented: $indexer.showPalette) {
             CommandPalette(onOpen: { indexer.open($0) }, onFocus: focus)
@@ -942,7 +942,7 @@ struct CommandPalette: View {
 
 // MARK: - Connect your notes (top of the drawer while sample notes are showing)
 
-/// NoteMesh opens straight into a graph of sample notes, so you can see what it does. This
+/// Notes Mesh opens straight into a graph of sample notes, so you can see what it does. This
 /// card, at the top of the drawer, explains what it does with your notes and walks you through
 /// Full Disk Access; the moment access is on, your own notes replace the samples.
 struct ConnectCard: View {
@@ -966,7 +966,7 @@ struct ConnectCard: View {
                 problemTile("Open the Notes app once (and sign in to iCloud Notes if you use it), then try again.", technical: nil)
                 retry
             case .failed(let message)?:
-                problemTile("NoteMesh couldn't read part of your library. Try again, and if it keeps failing, please report it on GitHub.", technical: message)
+                problemTile("Notes Mesh couldn't read part of your library. Try again, and if it keeps failing, please report it on GitHub.", technical: message)
                 retry
             default:
                 promises
@@ -994,7 +994,7 @@ struct ConnectCard: View {
             VStack(alignment: .leading, spacing: 1) {
                 Text(indexer.connect == .noLibrary ? "No Notes library yet" : "These are sample notes")
                     .font(.headline)
-                Text(indexer.connect == .noLibrary ? "NoteMesh couldn't find one on this Mac." : "Connect yours to see them as a map.")
+                Text(indexer.connect == .noLibrary ? "Notes Mesh couldn't find one on this Mac." : "Connect yours to see them as a map.")
                     .font(.callout).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -1029,7 +1029,7 @@ struct ConnectCard: View {
             Button { showWhy.toggle() } label: {
                 HStack(spacing: 10) {
                     iconCircle("text.magnifyingglass")
-                    Text("What NoteMesh does with your notes").font(.callout.weight(.medium))
+                    Text("What Notes Mesh does with your notes").font(.callout.weight(.medium))
                         .multilineTextAlignment(.leading)
                     Spacer(minLength: 4)
                     Image(systemName: "chevron.right").font(.caption.weight(.bold)).foregroundStyle(.secondary)
@@ -1043,7 +1043,7 @@ struct ConnectCard: View {
                 VStack(alignment: .leading, spacing: 10) {
                     fact("doc.on.doc", "Reads a temporary copy of your notes, then deletes it.")
                     fact("lock", "Never edits your notes and skips locked ones.")
-                    fact("trash", "File → Delete NoteMesh Data removes everything it saved.")
+                    fact("trash", "File → Delete Notes Mesh Data removes everything it saved.")
                 }
                 .padding(.top, 12)
                 .transition(.opacity)
@@ -1065,7 +1065,7 @@ struct ConnectCard: View {
         VStack(alignment: .leading, spacing: 10) {
             step(1, "Open Full Disk Access", done: openedSettings)
             HStack(spacing: 10) {
-                step(2, "Drag NoteMesh into the list", done: false)
+                step(2, "Drag Notes Mesh into the list", done: false)
                 Spacer(minLength: 4)
                 appTile
             }
@@ -1104,7 +1104,7 @@ struct ConnectCard: View {
                 .strokeBorder(.primary.opacity(0.25), style: StrokeStyle(lineWidth: 1, dash: [3, 3])))
             .onDrag { NSItemProvider(contentsOf: Bundle.main.bundleURL) ?? NSItemProvider() }
             .help("Drag into the Full Disk Access list")
-            .accessibilityLabel("NoteMesh app, drag into the Full Disk Access list")
+            .accessibilityLabel("Notes Mesh app, drag into the Full Disk Access list")
     }
 
     private var connectButton: some View {
@@ -1158,7 +1158,7 @@ struct ConnectCard: View {
 struct LoadFailedView: View {
     let message: String
     var body: some View {
-        ContentUnavailableView("NoteMesh couldn't start", systemImage: "exclamationmark.triangle",
+        ContentUnavailableView("Notes Mesh couldn't start", systemImage: "exclamationmark.triangle",
                                description: Text(message))
     }
 }
@@ -1371,11 +1371,11 @@ extension AITagger.Blocker {
     /// For the one-time notice.
     var message: String {
         switch self {
-        case .downloading: "Apple Intelligence isn't downloaded to this Mac yet, so NoteMesh arranges your notes by keyword for now. It switches over by itself when the download finishes."
-        case .restricted: "Your organisation has turned off Apple Intelligence on this Mac, so NoteMesh arranges your notes by keyword."
-        case .notEnabled: "Apple Intelligence is turned off on this Mac, so NoteMesh arranges your notes by keyword. You can turn it on in System Settings under Apple Intelligence & Siri."
-        case .unsupported: "This Mac doesn't support Apple Intelligence, so NoteMesh arranges your notes by keyword."
-        case .other: "Apple Intelligence isn't available right now, so NoteMesh arranges your notes by keyword. It switches over by itself when it becomes available."
+        case .downloading: "Apple Intelligence isn't downloaded to this Mac yet, so Notes Mesh arranges your notes by keyword for now. It switches over by itself when the download finishes."
+        case .restricted: "Your organisation has turned off Apple Intelligence on this Mac, so Notes Mesh arranges your notes by keyword."
+        case .notEnabled: "Apple Intelligence is turned off on this Mac, so Notes Mesh arranges your notes by keyword. You can turn it on in System Settings under Apple Intelligence & Siri."
+        case .unsupported: "This Mac doesn't support Apple Intelligence, so Notes Mesh arranges your notes by keyword."
+        case .other: "Apple Intelligence isn't available right now, so Notes Mesh arranges your notes by keyword. It switches over by itself when it becomes available."
         }
     }
 }

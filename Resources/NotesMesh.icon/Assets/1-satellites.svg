@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <line x1="241.7" y1="512.0" x2="356.4" y2="700.4" stroke="#F8F0E1" stroke-width="8" stroke-linecap="round"/>
+  <line x1="512.0" y1="241.7" x2="356.4" y2="323.6" stroke="#F8F0E1" stroke-width="8" stroke-linecap="round"/>
+  <line x1="782.3" y1="512.0" x2="667.6" y2="700.4" stroke="#F8F0E1" stroke-width="8" stroke-linecap="round"/>
+  <line x1="512.0" y1="782.3" x2="356.4" y2="700.4" stroke="#F8F0E1" stroke-width="8" stroke-linecap="round"/>
+  <line x1="266.2" y1="266.2" x2="356.4" y2="323.6" stroke="#F8F0E1" stroke-width="8" stroke-linecap="round"/>
+  <line x1="774.1" y1="757.8" x2="667.6" y2="700.4" stroke="#F8F0E1" stroke-width="8" stroke-linecap="round"/>
+  <line x1="512.0" y1="446.5" x2="356.4" y2="323.6" stroke="#F8F0E1" stroke-width="8" stroke-linecap="round"/>
+  <line x1="806.9" y1="266.2" x2="667.6" y2="323.6" stroke="#F8F0E1" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="241.7" cy="512.0" r="19" fill="#F8F0E1"/>
+  <circle cx="512.0" cy="241.7" r="19" fill="#F8F0E1"/>
+  <circle cx="782.3" cy="512.0" r="19" fill="#F8F0E1"/>
+  <circle cx="512.0" cy="782.3" r="19" fill="#F8F0E1"/>
+  <circle cx="266.2" cy="266.2" r="19" fill="#F8F0E1"/>
+  <circle cx="774.1" cy="757.8" r="19" fill="#F8F0E1"/>
+  <circle cx="512.0" cy="446.5" r="19" fill="#F8F0E1"/>
+  <circle cx="806.9" cy="266.2" r="19" fill="#F8F0E1"/>
+</svg>

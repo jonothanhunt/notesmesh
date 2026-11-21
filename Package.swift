@@ -2,12 +2,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "NoteMesh",
+    name: "NotesMesh",
     platforms: [.macOS("26.0")],
     targets: [
         .executableTarget(
-            name: "NoteMesh",
-            path: "Sources/NoteMesh",
+            name: "NotesMesh",
+            path: "Sources/NotesMesh",
             swiftSettings: [.swiftLanguageMode(.v5)]
         )
     ]

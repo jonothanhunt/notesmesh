@@ -1,4 +1,4 @@
-// Draws NoteMesh's app icon and writes Resources/AppIcon.icns.
+// Draws Notes Mesh's app icon and writes Resources/AppIcon.icns.
 //   swift scripts/make-icon.swift
 // A warm squircle with a small mesh of notes (cream), a person (coral) and an entity (blue),
 // lit from the top like glass.
@@ -90,7 +90,7 @@ func draw(_ px: Int) -> NSBitmapImageRep {
 
 let fm = FileManager.default
 let root = URL(fileURLWithPath: CommandLine.arguments[0]).deletingLastPathComponent().deletingLastPathComponent()
-let set = fm.temporaryDirectory.appendingPathComponent("NoteMesh.iconset")
+let set = fm.temporaryDirectory.appendingPathComponent("Notes Mesh.iconset")
 try? fm.removeItem(at: set)
 try! fm.createDirectory(at: set, withIntermediateDirectories: true)
 for base in [16, 32, 128, 256, 512] {
