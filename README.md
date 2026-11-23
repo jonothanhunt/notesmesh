@@ -13,7 +13,7 @@
 
 <p align="center">
   <strong>Your Apple Notes as a living map.</strong><br/>
-  Notes Mesh reads your Notes library on your Mac and draws it as a graph: islands of related notes, the people and organisations you keep notes about, and the topics that tie them together. Native SwiftUI and Metal, with Liquid Glass controls. Nothing leaves your Mac.
+  Notes Mesh reads your Notes library on your Mac and draws it as a graph: islands of related notes, the people and organisations you keep notes about, and the topics that tie them together. It's a native SwiftUI and Metal app with Liquid Glass controls, and it runs entirely on your Mac.
 </p>
 
 <p align="center">
@@ -44,12 +44,12 @@
 - **Your note links:** the `>>` links you make between notes in Apple Notes (like Obsidian's `[[links]]`) are drawn as solid lines.
 - **Topics:** from Apple Intelligence on Macs that have it, reading notes privately on-device, or from keywords your notes share. Switch between them any time.
 - **Similar notes:** word overlap blended with on-device sentence embeddings links notes that talk about the same things.
-- **A drawer like Maps:** search (⌘F), islands, people, organisations and topics, and a page for anything you select. Double-click a note (or ⌘↩) to open it in Notes.
+- **The drawer:** search (⌘F), your islands, people, organisations and topics, and a page for whatever you select. Double-click a note (or press ⌘↩) to open it in Notes.
 - **Fast:** the graph is drawn with Metal as instanced quads. On an M4 Pro it holds 116 fps with an average frame build of 0.32 ms at about 900 nodes and 1,700 edges.
 - **Light and dark:** follows your Mac, or pick one with the button under the slider.
 
 ## Privacy
-Notes Mesh is built to be safe to point at your most personal notes.
+Notes are personal, so Notes Mesh is careful with them:
 
 - **Nothing leaves your Mac.** There's no network code, no accounts, no analytics and no crash reporting.
 - **Read-only.** Notes Mesh copies the Notes database to a temporary folder, reads the copy and deletes it straight away. It never writes to the Notes library, and it skips locked notes.
@@ -71,7 +71,7 @@ The full policy is in [PRIVACY.md](PRIVACY.md).
 git clone https://github.com/jonothanhunt/notesmesh.git
 cd notesmesh
 scripts/build-app.sh install
-open ~/Applications/Notes Mesh.app
+open ~/Applications/"Notes Mesh.app"
 ```
 
 The script signs with your Apple Development certificate if you have one, so macOS keeps Notes Mesh's access across rebuilds. Without one it signs ad hoc, and you may need to grant access again after each build.
@@ -130,7 +130,7 @@ Notes Mesh was designed and directed by Jonothan Hunt and written with AI models
 | ----- | -------- |
 | Claude Opus 5.5 (Anthropic) | Code, design iterations, the Metal renderer, the sample library, docs and release work |
 
-**Models inside the app** (all on-device, nothing leaves your Mac)
+**Models inside the app** (all run on-device)
 
 | Model | Used for |
 | ----- | -------- |

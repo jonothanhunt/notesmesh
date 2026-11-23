@@ -1,7 +1,7 @@
 # Security and privacy
 
-Notes Mesh reads one of the most personal things on a Mac, so problems that could expose note
-content are taken seriously. That includes:
+Notes Mesh reads your notes, so anything that could expose them counts as a security problem,
+including:
 
 - note content written anywhere outside the Notes library;
 - anything sent over the network;
@@ -12,8 +12,8 @@ content are taken seriously. That includes:
 
 Please report security or privacy problems privately, through GitHub's
 **Security → Report a vulnerability** on this repository, rather than in a public issue.
-Include the macOS version and steps to reproduce. Please don't attach real notes; the demo
-notes Notes Mesh shows before you connect your own are usually enough to show a problem.
+Include the macOS version and steps to reproduce. Please don't attach real notes; the sample
+library (launch with `--sample`) is usually enough to show a problem.
 
 ## What Notes Mesh touches
 

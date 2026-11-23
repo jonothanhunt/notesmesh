@@ -5,7 +5,7 @@ Thanks for helping with Notes Mesh. Issues and pull requests are both welcome.
 ## Getting started
 
 1. Build with `scripts/build-app.sh` (Xcode's Command Line Tools are enough).
-2. Run with `open build/Notes Mesh.app --args --sample` to work against the built-in sample library. It never reads your own notes, which keeps screenshots, bug reports and test runs free of personal data.
+2. Run with `open "build/Notes Mesh.app" --args --sample` to work against the built-in sample library. It never reads your own notes, which keeps screenshots, bug reports and test runs free of personal data.
 3. `scripts/build-app.sh debug` adds test hooks such as `--click-channel`. Don't distribute that build.
 
 ## Guidelines
