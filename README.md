@@ -34,8 +34,9 @@
 3. [Guide](#guide)
 4. [Using Notes Mesh](#using-notes-mesh)
 5. [Project Structure](#project-structure)
-6. [Contributing](#contributing)
-7. [License](#license)
+6. [How it was made](#how-it-was-made)
+7. [Contributing](#contributing)
+8. [License](#license)
 
 ## Features
 - **Islands:** related notes gather into islands (Louvain communities in a Barnes–Hut force layout), each with its own colour across the graph, its card and its page. Zoom out and every island is named with a Liquid Glass pill.
@@ -118,6 +119,24 @@ notesmesh/
 ├── scripts/        # build-app.sh
 └── assets/         # README images
 ```
+
+## How it was made
+
+Notes Mesh was designed and directed by Jonothan Hunt and written with AI models as pair programmers, working in [Claude Code](https://claude.com/claude-code).
+
+**Models used to build it**
+
+| Model | Used for |
+| ----- | -------- |
+| Claude Opus 5.5 (Anthropic) | Code, design iterations, the Metal renderer, the sample library, docs and release work |
+
+**Models inside the app** (all on-device, nothing leaves your Mac)
+
+| Model | Used for |
+| ----- | -------- |
+| Apple Foundation Models (Apple Intelligence, on-device) | Reading notes for topics and whether a note is a person or organisation profile |
+| Apple NaturalLanguage sentence embeddings | Finding similar notes |
+| Apple NaturalLanguage tagger | Names, organisations and keyword topics |
 
 ## Contributing
 
